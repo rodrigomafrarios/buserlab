@@ -2,5 +2,5 @@ version: 0.0
 os: linux
 files:
     - source: /
-      destination: /var/www/buser-lab
+      destination: /home/ubuntu/buser-lab
       overwrite: true
