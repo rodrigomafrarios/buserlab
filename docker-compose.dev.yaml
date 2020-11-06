@@ -1,0 +1,41 @@
+version: '3'
+services: 
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_USER=app
+        - POSTGRES_PASSWORD=app
+      ports:
+        - 5432:5432
+      volumes:
+        - ./dbdata/postgres:/var/lib/postgresql/data
+      networks:
+        - app_network
+    nginx:
+      container_name: nginx
+      build:
+        context: ./nginx
+      volumes:
+        - ./nginx:/etc/nginx/sites-available
+      ports:
+        - "80:80"
+      depends_on:
+        - backend
+      networks:
+        - app_network
+    backend:
+      container_name: backend
+      build:
+        context: ./backend
+      expose:
+        - 8000
+      networks:
+        - app_network
+      volumes: 
+        - ./backend/api:/api
+      entrypoint: dockerize -wait tcp://db:5432 -template ./.env/dev.env -timeout 40s ./entrypoint.sh
+      environment: 
+        - DEBUG=1
+        - DJANGO_DB_HOST=db
+networks:
+  app_network:
