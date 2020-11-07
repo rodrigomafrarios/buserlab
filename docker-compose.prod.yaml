@@ -1,0 +1,61 @@
+version: '3'
+services: 
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_USER=app
+        - POSTGRES_PASSWORD=app
+      ports:
+        - 5432:5432
+      volumes:
+        - ./dbdata/postgres:/var/lib/postgresql/data
+      networks:
+        - app_network
+    nginx:
+      image: nginx
+      container_name: nginx
+      restart: always
+      volumes:
+        - ./nginx/prod:/etc/nginx/conf.d
+        - ./nginx/certbot/conf:/etc/nginx/ssl
+        - ./nginx/certbot/data:/var/www/certbot
+      ports:
+        - 80:80
+        - 443:443
+      depends_on:
+        - backend
+      networks:
+        - app_network
+    certbot:
+        image: certbot/certbot:latest
+        command: certonly --webroot --webroot-path=/var/www/certbot --email rodrigomafrarios@gmail.com --agree-tos --no-eff-email -d teste.buserlab.io
+        volumes:
+          - ./nginx/certbot/conf:/etc/letsencrypt
+          - ./nginx/certbot/logs:/var/log/letsencrypt
+          - ./nginx/certbot/data:/var/www/certbot
+    backend:
+      container_name: backend
+      build:
+        context: ./backend
+      expose:
+        - 8000
+      networks:
+        - app_network
+      volumes: 
+        - ./backend/api:/api
+      entrypoint: dockerize -wait tcp://db:5432 -template ./.env/dev.env -timeout 40s ./entrypoint.sh
+      environment: 
+        - DEBUG=1
+        - DJANGO_DB_HOST=db
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/rodrigo/buserlab/backend/
+      o: bind
+networks:
+  app_network:
+    driver: bridge

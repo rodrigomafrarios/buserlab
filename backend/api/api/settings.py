@@ -26,7 +26,7 @@ SECRET_KEY = 'xkpuf$ham0r6qnd_o+ods*_$3^+v^$&lm2w)h7(=y)t$-&3!_d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.204.215.100']
 
 
 # Application definition
@@ -57,6 +57,7 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'https://d1pmqsaa7z7ebs.cloudfront.net'
 ]
 
 ROOT_URLCONF = 'api.urls'

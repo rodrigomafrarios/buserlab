@@ -12,13 +12,13 @@ services:
       networks:
         - app_network
     nginx:
+      image: nginx
       container_name: nginx
-      build:
-        context: ./nginx
+      restart: always
       volumes:
-        - ./nginx:/etc/nginx/sites-available
+        - ./nginx/dev:/etc/nginx/conf.d
       ports:
-        - "80:80"
+        - 80:80
       depends_on:
         - backend
       networks:
@@ -37,5 +37,15 @@ services:
       environment: 
         - DEBUG=1
         - DJANGO_DB_HOST=db
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/rodrigo/buserlab/backend/
+      o: bind
 networks:
   app_network:
+    driver: bridge
