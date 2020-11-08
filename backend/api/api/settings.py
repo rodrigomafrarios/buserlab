@@ -57,7 +57,7 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://d1pmqsaa7z7ebs.cloudfront.net'
+    'https://buserlab.com.s3-website-us-east-1.amazonaws.com'
 ]
 
 ROOT_URLCONF = 'api.urls'
