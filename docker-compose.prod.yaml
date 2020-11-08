@@ -19,16 +19,22 @@ services:
       dockerfile: ./.docker/backend/Dockerfile
     expose:
       - 8000
-    networks:
-      - app_network
     volumes: 
       - ./backend/api:/api
       - ./backend/requirements.txt:/api/requirements.txt
       - ./.docker/backend/entrypoint.sh:/api/entrypoint.sh
-    entrypoint: dockerize -wait tcp://db:5432 -template ./.env/dev.env -timeout 40s ./entrypoint.sh
+      - ./.env/prod.env:/api/prod.env
+    entrypoint: dockerize -wait tcp://db:5432 -template ./prod.env -timeout 40s ./entrypoint.sh
     environment: 
       - DEBUG=1
       - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+      - DJANGO_ALLOWED_HOSTS=localhost
+    networks:
+      - app_network
   nginx:
     image: nginx
     container_name: nginx
@@ -39,6 +45,7 @@ services:
       - 80:80
     depends_on:
       - backend
+      - frontend
     networks:
       - app_network       
 networks:

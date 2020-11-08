@@ -8,3 +8,5 @@ RUN apt-get update --fix-missing && \
 RUN cd /tmp && \
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get install -y nodejs
+
+WORKDIR frontend/
