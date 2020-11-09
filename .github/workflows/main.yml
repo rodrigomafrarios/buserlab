@@ -18,4 +18,7 @@ jobs:
         port: 22
         script: | 
           cd /home/ubuntu/buserlab
-          git status 
+          git fetch origin
+          git checkout origin/master
+          sh scripts/backend.sh
+          
