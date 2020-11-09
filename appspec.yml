@@ -5,6 +5,6 @@ files:
     destination: /home/ubuntu/buserlab
 hooks:
   ApplicationStart:
-    - location: backend.sh
+    - location: scripts/backend.sh
       timeout: 300
       runas: root
