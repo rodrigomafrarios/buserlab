@@ -2,35 +2,35 @@
   id: 1,
   title:'1ª Frase efeito',
   text:'Tudo é tudo e nada é nada',
-  datetime: new Date('2020-03-01').getTime()
+  createdAt: new Date('2020-03-01').getTime()
 },
 {
   id: 2,
   title:'2ª Frase efeito',
   text:'Everybody has a plan until the first punch in the face',
-  datetime: new Date('2020-05-01').getTime()
+  createdAt: new Date('2020-05-01').getTime()
 },
 {
   id: 3,
   title:'3ª Frase efeito',
   text:'Não se trata de bater duro. Se trata de quanto você aguenta apanhar e seguir em frente',
-  datetime: new Date('2020-05-02').getTime()
+  createdAt: new Date('2020-05-02').getTime()
 },
 {
   id: 4,
   title:'4ª Frase efeito',
   text:'É preciso escolher um caminho que não tenha fim, mas, ainda assim, caminhar sempre na expectativa de encontrá-lo.',
-  datetime: new Date('2020-07-21').getTime()
+  createdAt: new Date('2020-07-21').getTime()
 },
 {
   id: 5,
   title:'5ª Frase efeito',
   text:'O futuro é incerto e o fim está sempre perto!',
-  datetime: new Date('2020-09-21').getTime()
+  createdAt: new Date('2020-09-21').getTime()
 },
 {
   id: 6,
   title:'6ª Frase efeito',
   text:'O importante não é vencer todos os dias, mas lutar sempre.',
-  datetime: new Date('2019-07-21').getTime()
+  createdAt: new Date('2019-07-21').getTime()
 }

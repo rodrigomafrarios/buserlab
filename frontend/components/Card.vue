@@ -37,61 +37,81 @@ export default {
             cardProps:{
                 title:'',
                 text:'',
-                datetime:'',
-                key:0
+                created_at:'',
+                key: this.$attrs.index
             },
             btnProps:{
-                text:'Update',
-                route: '/register/update'
+                text:'Create',
+                route: 'api/register/create/'
             }
         }
     },
-    mounted(){
-        
+    mounted()
+    {
+
+      //limit text greater than 100 characters
+      this.limitText();
+
+      // set a new card
+      if(this.data.isNew){
+        this.newCard();
+        return false;
+      }
+
+      // set a old card
+      this.oldCard();
+
+    },
+    methods:
+    {
+      newCard()
+      {
+        // show inputs to fill title and text
+        this.showInputTitle = true;
+        this.showInputText  = true;
+        this.cardProps.isNew = true;
+      },
+      oldCard()
+      {
+        this.btnProps.text  = 'Update',
+        this.btnProps.route = 'api/register/update/' + this.data.id
+
+        this.cardProps.id        = this.data.id;
         this.cardProps.title     = this.data.title;
         this.cardProps.text      = this.data.text;
-        this.cardProps.datetime  = this.data.datetime;
-
-        //limit text greater than 100 characters
-        this.limitText();
-
-        // check if new card to set the right button properties
-        if(this.data.isNew){
-            this.btnProps.text  = 'Create',
-            this.btnProps.route = '/register/create'
-
-            // show inputs to fill title and text
-            this.showInputTitle = true;
-            this.showInputText  = true;
+        this.cardProps.created_at  = this.data.created_at;
+      },
+      limitText()
+      {
+        if(this.cardProps.text.length > 80){
+            this.cardProps.text = this.data.text.substr(0,100) + '...'
         }
-    },
-    methods:{
-        limitText(){
-            if(this.cardProps.text.length > 80){
-                this.cardProps.text = this.data.text.substr(0,100) + '...'
-            }
-        },
-        remove()
-        {
-            // event bus to remove the card itself
-            this.$emit('remove-card');
-        },
-        save(route)
-        {
-            // back to span
-            this.showInputTitle = false;
-            this.showInputText  = false;
-
-            // event bus to save the card
-            this.$emit('save-card',{route:this.btnProps.route,card:this.cardProps});
+      },
+      remove()
+      {
+        // event bus to remove the card itself
+        this.$emit('remove-card');
+      },
+      save(route)
+      {
+        //in a real case needs to improve the feedback
+        if(this.cardProps.title === '' || this.cardProps.text === ''){
+          return false;
         }
+
+        // back to span
+        this.showInputTitle = false;
+        this.showInputText  = false;
+
+        // event bus to save the card
+        this.$emit('save-card',{route:this.btnProps.route,card:this.cardProps});
+      }
     }
 }
 </script>
 <style scoped>
 .register-card{
     margin-top: 15px;
-    /* height: 200px; */
 }
 .register-card input{
     color: white;

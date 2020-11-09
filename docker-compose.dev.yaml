@@ -33,6 +33,7 @@ services:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app
       - DJANGO_ALLOWED_HOSTS=localhost
+      - DJANGO_CORS_ORIGIN_WHITELIST=http://localhost:3000
     networks:
       - app_network
   frontend:

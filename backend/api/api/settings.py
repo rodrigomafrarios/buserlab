@@ -56,9 +56,13 @@ MIDDLEWARE = [
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'https://buserlab.com.s3-website-us-east-1.amazonaws.com'
+    os.environ.get('DJANGO_CORS_ORIGIN_WHITELIST')
 ]
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'DELETE'
+)
 
 ROOT_URLCONF = 'api.urls'
 

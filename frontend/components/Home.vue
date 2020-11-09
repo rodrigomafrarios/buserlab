@@ -43,60 +43,97 @@ export default {
     },
     methods:
     {
-        async fillCards()
+        fillCards()
         {
-            // list cards from database
-            api.list('api/register/list').then((response) =>
-            {
-              if(response.status === 200){
-                this.cards = response.data;
+          // list cards from database
+          api.list('api/register/list/').then((response) =>
+          {
+            if(response.status === 200){
+              this.cards = response.data;
 
-                // sort cards
-                this.sortCards();
-              }
-            });
+              // sort cards
+              this.sortCards();
+            }
+          });
         },
         sortCards()
         {
-            this.cards.sort((a,b) => {
-                return b.datetime > a.datetime
-            });
+          this.cards.sort((a,b) => {
+              return new Date(b.created_at).getTime() > new Date(a.created_at).getTime()
+          });
 
         },
+        // add new card into array
         addCard()
         {
-            // add new card into array
-            this.cards.push({
-                title:'',
-                text:'',
-                isNew:true,
-                datetime: new Date().getTime()
-            })
+          this.cards.push({
+              title:'',
+              text:'',
+              isNew:true,
+              created_at: new Date().getTime()
+          })
 
-
-            // sort cards
-            this.sortCards();
+          // sort cards
+          this.sortCards();
         },
-        // TODO: Create API
-        // TODO: Update API
         saveCard(data)
         {
-            console.log(data);
+          // is a brand new card?
+          if(data.card.isNew){
+            this.insert(data);
+            return false;
+          }
 
-            axios.post(data.route,data.card, (response) => {
-                console.log(response);
-            });
-
-
-            // if insert get the new id
+          // just update
+          this.update(data);
         },
-        // TODO: Delete API
-        removeCard(card)
+        insert(data)
         {
-            // remove card from array
-            this.cards.splice(card.index,1);
+          api.create(data.route,data.card).then((response) =>
+          {
+            // update card array
+            if(response.status === 200){
+              this.afterSave(data,response.data)
+            }
+          });
+        },
+        update(data)
+        {
+          api.update(data.route,data.card).then((response) =>
+          {
+            // update card array
+            if(response.status === 200){
+              this.afterSave(data,response.data)
+            }
+          });
+        },
+        afterSave(data,response)
+        {
+          this.cards[data.card.key].created_at = response.created_at;
+          this.cards[data.card.key].title = response.title;
+          this.cards[data.card.key].text = response.text;
 
-            // remove from database
+          // new register already in database, so remove flag
+          if(this.cards[data.card.key].isNew){
+            this.cards[data.card.key].id = response.id;
+            delete this.cards[data.card.key].isNew;
+          }
+
+          this.sortCards();
+        },
+        removeCard(index)
+        {
+          if(!this.cards[index].id){
+            this.cards.splice(index,1);
+            return false;
+          }
+
+          api.remove('api/register/remove/' + this.cards[index].id).then((response) => {
+            if(response.status === 200){
+              // remove card from array
+              this.cards.splice(index,1);
+            }
+          })
         }
     }
 }
