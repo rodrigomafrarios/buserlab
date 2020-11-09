@@ -1,3 +1,3 @@
 #!/bin/sh
-docker restart backend
-docker restart nginx
+docker-compose -f docker-compose.prod.yaml backend restart
+docker restart -f docker-compose.prod.yaml nginx restart
