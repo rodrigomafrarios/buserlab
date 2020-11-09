@@ -3,6 +3,7 @@ from .models import Register
 from .serializers import RegisterSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
+import json
 from datetime import datetime
 
 @api_view(['GET'])
@@ -14,7 +15,6 @@ def list(request):
 @api_view(['POST'])
 def create(request):
         payload = request.POST
-        
         #is title or text are empty?
         if not payload['title'] or not payload['text']:
                 return JsonResponse({'error':'Something went wrong'}, safe=False, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -32,7 +32,6 @@ def create(request):
 @api_view(['POST'])
 def update(request,id=int):
         payload = request.POST
-        
         #is title or text are empty?
         if not payload['title'] or not payload['text']:
                 return JsonResponse({'error':'Something went wrong'}, safe=False, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

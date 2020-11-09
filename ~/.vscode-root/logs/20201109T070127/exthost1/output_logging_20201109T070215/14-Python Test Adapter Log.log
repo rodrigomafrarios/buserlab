@@ -1,0 +1,40 @@
+2020-11-09T10:02:15.965Z INFO unittest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:02:15.967Z  DBG unittest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:02:15.977Z INFO pytest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:02:15.977Z  DBG pytest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:02:21.130Z INFO unittest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:02:21.131Z INFO pytest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:02:21.142Z INFO unittest at 'buser-lab': Unittest test discovery is disabled
+2020-11-09T10:02:21.142Z INFO pytest at 'buser-lab': Pytest test discovery is disabled
+2020-11-09T10:02:40.093Z INFO unittest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:02:40.093Z  DBG unittest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:02:40.093Z INFO pytest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:02:40.094Z  DBG pytest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:02:40.121Z INFO unittest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:02:40.124Z INFO pytest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:02:40.135Z  DBG unittest at 'buser-lab': Sending autorun event
+2020-11-09T10:02:40.135Z  DBG pytest at 'buser-lab': Sending autorun event
+2020-11-09T10:03:03.397Z INFO unittest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:03:03.398Z  DBG unittest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:03:03.398Z INFO pytest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:03:03.398Z  DBG pytest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:03:03.400Z INFO unittest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:03:03.400Z INFO pytest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:03:03.407Z  DBG unittest at 'buser-lab': Sending autorun event
+2020-11-09T10:03:03.407Z  DBG pytest at 'buser-lab': Sending autorun event
+2020-11-09T10:03:19.385Z INFO unittest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:03:19.385Z  DBG unittest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:03:19.385Z INFO pytest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:03:19.386Z  DBG pytest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:03:19.387Z INFO unittest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:03:19.387Z INFO pytest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:03:19.394Z  DBG unittest at 'buser-lab': Sending autorun event
+2020-11-09T10:03:19.394Z  DBG pytest at 'buser-lab': Sending autorun event
+2020-11-09T10:22:03.482Z INFO unittest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:22:03.482Z  DBG unittest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:22:03.483Z INFO pytest at 'buser-lab': Reading configuration for workspace buser-lab
+2020-11-09T10:22:03.483Z  DBG pytest at 'buser-lab': usingNewInterpreterStorage feature flag is 'true'
+2020-11-09T10:22:03.484Z INFO unittest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:22:03.484Z INFO pytest at 'buser-lab': Using auto-detected pythonPath /usr/bin/python3
+2020-11-09T10:22:03.488Z  DBG unittest at 'buser-lab': Sending autorun event
+2020-11-09T10:22:03.488Z  DBG pytest at 'buser-lab': Sending autorun event

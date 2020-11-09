@@ -3,9 +3,14 @@ import axios from 'axios'
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "csrftoken";
 
-const config = {
-  headers: {'Access-Control-Allow-Origin': '*'}
-};
+let baseURL = '';
+
+// TODO: needs to improve
+if(window.location.href !== 'http://localhost/'){
+  baseURL = 'API_URL'
+}
+
+console.log(baseURL)
 
 const api = {
   list(url,data){
@@ -22,13 +27,10 @@ const api = {
   }
 };
 
-// TODO: obter baseURL das variáveis de ambiente
-const baseURL = 'http://localhost/'
-
 export default api
 
 function get(url, params){
-  return axios.get(baseURL + url, {params: params},config);
+  return axios.get(baseURL + url, {params: params});
 }
 
 function post(url, params){
@@ -37,7 +39,7 @@ function post(url, params){
   Object.keys(params).map((k) => {
       fd.append(k, params[k]);
   })
-  return axios.post(baseURL + url, fd,config);
+  return axios.post(baseURL + url, fd);
 }
 
 function remove(url)

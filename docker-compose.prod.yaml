@@ -32,8 +32,8 @@ services:
       - DJANGO_DB_NAME=app
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app
-      - DJANGO_ALLOWED_HOSTS=localhost
-      - DJANGO_CORS_ORIGIN_WHITELIST=https://buserlab.com.s3-website-us-east-1.amazonaws.com
+      - DJANGO_ALLOWED_HOSTS=54.204.215.100
+      - DJANGO_CORS_ORIGIN_WHITELIST=http://www.buserlab.com.s3-website-us-east-1.amazonaws.com
     networks:
       - app_network
   nginx:

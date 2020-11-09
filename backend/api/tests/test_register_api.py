@@ -36,11 +36,11 @@ class RegisterTestCase(TestCase):
 
         #load object
         data = {
-            'id':1,
+            'id':2,
             'title':'2ª Frase efeito',
             'text':'[UPDATE]Everybody has a plan until the first punch in the face'
         }
-        
+
         #update
         response = request.post('/api/register/update/' + str(data['id']),data)
         

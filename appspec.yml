@@ -1,6 +1,11 @@
 version: 0.0
 os: linux
 files:
-    - source: /
-      destination: /home/ubuntu/buser-lab
-      overwrite: true
+  - source: /
+    destination: /home/ubuntu/buser-lab
+    overwrite: true
+hooks:
+  - BeforeInstall:
+    - location: scripts/frontend.sh
+      timeout: 300
+      runas: root

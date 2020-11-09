@@ -1,0 +1,4 @@
+[Info  - 07:37:33] Pyright language server 1.1.84 starting
+[Info  - 07:37:33] Server root directory: /root/.vscode/extensions/ms-pyright.pyright-1.1.84/dist
+Received pythonPath from Python extension: /usr/bin/python3
+[Error - 07:37:33] stubPath /home/rodrigo/buser-lab/typings is not a valid directory.

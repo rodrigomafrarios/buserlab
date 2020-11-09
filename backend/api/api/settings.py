@@ -61,7 +61,8 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ALLOW_METHODS = (
     'GET',
     'POST',
-    'DELETE'
+    'DELETE',
+    'OPTIONS'
 )
 
 ROOT_URLCONF = 'api.urls'
