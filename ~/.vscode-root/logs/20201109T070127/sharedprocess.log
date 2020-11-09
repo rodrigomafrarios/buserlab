@@ -1,8 +1,0 @@
-[2020-11-09 07:01:32.301] [sharedprocess] [info] main {"machineId":"0bee824a6913969103e9f454bbfac2ccf344172f59a42ceceebe2f61741cd89b","windowId":2}
-[2020-11-09 07:01:32.414] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/rodrigo/buser-lab/~/.vscode-root/User/snippets'
-[2020-11-09 07:01:35.537] [sharedprocess] [info] Deleted from disk hbenl.vscode-test-explorer /root/.vscode/extensions/hbenl.vscode-test-explorer-2.19.1
-[2020-11-09 07:01:36.585] [sharedprocess] [info] Deleted from disk ms-pyright.pyright /root/.vscode/extensions/ms-pyright.pyright-1.1.83
-[2020-11-09 07:01:36.624] [sharedprocess] [info] Deleted from disk octref.vetur /root/.vscode/extensions/octref.vetur-0.29.0
-[2020-11-09 07:02:12.340] [sharedprocess] [info] Starting to clean up unused language packs.
-[2020-11-09 07:22:44.207] [sharedprocess] [info] Uninstalling extension: wakatime.vscode-wakatime
-[2020-11-09 07:22:44.271] [sharedprocess] [info] Successfully uninstalled extension: wakatime.vscode-wakatime
