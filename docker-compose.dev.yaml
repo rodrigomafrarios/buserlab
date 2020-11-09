@@ -54,7 +54,7 @@ services:
     container_name: nginx
     restart: always
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/buserlab.dev.conf:/etc/nginx/conf.d/buserlab.dev.conf
     ports:
       - 80:80
     depends_on:
