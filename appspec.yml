@@ -2,10 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/buser-lab
-    overwrite: true
+    destination: /home/ubuntu/buserlab
 hooks:
-  - BeforeInstall:
+  ApplicationStart:
     - location: scripts/frontend.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: scripts/backend.sh
       timeout: 300
       runas: root
