@@ -2,6 +2,7 @@
 
 This is just a CRUD example using a decoupling architecture
 
+
 ### Example architecture
 * [Nuxt.js] frontend on S3 bucket
 * [Python-Django] backend on EC2 with docker container
