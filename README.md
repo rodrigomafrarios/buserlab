@@ -4,7 +4,7 @@ This is just a CRUD example using a decoupling architecture
 
 
 ### Example architecture
-* [Nuxt.js] frontend on S3 bucket
+* [Nuxt.js] frontend on S3 bucket (https://ibb.co/yqWJdGp)
 * [Python-Django] backend on EC2 with docker container
 * [Postgres] db running on docker (it's just a example, ok?)
 
@@ -24,7 +24,7 @@ This is just a CRUD example using a decoupling architecture
 
 
 ### 2) frontend:
-- config a static website on s3 bucket
+- config a static website on s3 bucket (https://docs.aws.amazon.com/pt_br/AmazonS3/latest/dev/HowDoIWebsiteConfiguration.html)
 - with the s3 website url fill the compose var `DJANGO_CORS_ORIGIN_WHITELIST`
 - npm run build && npm run generate
 - deploy dist/ to s3 bucket 
@@ -37,6 +37,11 @@ This is just a CRUD example using a decoupling architecture
 ### 3) backend:
 - install docker and docker-compose
 - run docker-compose file on server: `docker-compose -f docker-compose.prod.yaml up --build` or detached
+
+### 4) Deploy:
+- Github actions
+- There's a `docker-compoose.prod` into the EC2 with prod configs
+- `scripts/frontend.sh` create and copy `dist/` to `s3 website`
 
 ## Image
 - https://ibb.co/jzndFKS

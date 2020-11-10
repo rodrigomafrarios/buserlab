@@ -44,7 +44,10 @@ services:
     volumes:
       - ./frontend:/frontend
       - ./.docker/frontend/entrypoint.sh:/frontend/entrypoint.sh
-    entrypoint: ./entrypoint.sh
+      - ./.env/frontend.env:/frontend/frontend.env
+    entrypoint: dockerize -template ./frontend.env ./entrypoint.sh
+    environment: 
+      - NUXT_ENV=dev
     expose:
       - 3000
     networks:

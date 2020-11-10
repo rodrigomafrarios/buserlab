@@ -39,7 +39,7 @@ export default {
         }
     },
     created(){
-        this.fillCards();
+      this.fillCards();
     },
     methods:
     {

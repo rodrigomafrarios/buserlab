@@ -10,8 +10,6 @@ if(window.location.href !== 'http://localhost/'){
   baseURL = 'API_URL'
 }
 
-console.log(baseURL)
-
 const api = {
   list(url,data){
     return get(url,data);
