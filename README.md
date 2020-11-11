@@ -45,7 +45,7 @@ This is just a CRUD example using a decoupling architecture
 
 ## Image
 - https://ibb.co/jzndFKS
-- 
+
 ### Improvements
 
 - make it lean
@@ -55,6 +55,7 @@ This is just a CRUD example using a decoupling architecture
 - log structure
 - remove other env structure of current env
 - https connection
+- API token
 - CDN to make s3 bucket private
-#
-... and a lot of things that I need to learn yet
+
+... and so on
