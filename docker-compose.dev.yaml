@@ -14,9 +14,7 @@ services:
       - app_network
   backend:
     container_name: backend
-    build:
-      context: ./
-      dockerfile: ./.docker/backend/Dockerfile
+    image: rodrigomafra/buserlab_backend
     expose:
       - 8000
     volumes: 
@@ -38,9 +36,7 @@ services:
       - app_network
   frontend:
     container_name: frontend
-    build:
-      context: ./
-      dockerfile: ./.docker/frontend/Dockerfile
+    image: rodrigomafra/buserlab_frontend
     volumes:
       - ./frontend:/frontend
       - ./.docker/frontend/entrypoint.sh:/frontend/entrypoint.sh
