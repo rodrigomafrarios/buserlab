@@ -40,7 +40,7 @@ This is just a CRUD example using a decoupling architecture
 
 ### 4) Deploy:
 - Github actions
-- There's a `docker-compoose.prod` into the EC2 with prod configs
+- There's a `docker-compoose.prod` with prod configs into the EC2
 - `scripts/frontend.sh` create and copy `dist/` to `s3 website`
 
 ## Image
@@ -49,7 +49,7 @@ This is just a CRUD example using a decoupling architecture
 ### Improvements
 
 - make it lean
-- Scale out
+- Scale out 
 - remove volume bindings to prod env
 - evict 'latest' versions
 - log structure
